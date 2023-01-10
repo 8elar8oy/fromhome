@@ -10,19 +10,16 @@ int main()
 	window.setFramerateLimit(60);
 	Bat bat;
 	Ball ball;
-	
+
 	initBat(bat);
 	initBall(ball);
-	
-	
+
 	while (window.isOpen())
 	{
-		
 		checkEvents(window);
-		updateGame(bat,ball);
-		checkCollisions(ball,bat);
+		updateGame(bat, ball);
+		checkCollisions(ball, bat);
 		drawGame(window, bat, ball);
-		
 	}
 
 	return 0;
