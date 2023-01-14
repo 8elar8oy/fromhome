@@ -2,7 +2,6 @@
 #include "SFML/Graphics.hpp"
 #include "Bat.h"
 #include "Ball.h"
-#include "Text.h"
 #include "windows.h"
 
 using namespace sf;
@@ -14,16 +13,29 @@ void checkEvents(sf::RenderWindow& window) {
 		if (event.type == sf::Event::Closed)
 			window.close();
 	}
-//создание ракетки
+	//создание ракетки
 }
-void initText(Text& Text1,int count,Font& font, const int charSize, const Vector2f textStartPos) {
-		/*const int charSize = 64;*/
+void initScore(Text& Text1, int count, Font& font, const sf::Vector2f textStartPos) {
+	font.loadFromFile("ds-digib.ttf");
 	Text1.setString(std::to_string(count));
 	Text1.setFont(font);
 	Text1.setCharacterSize(charSize);
-	Text1.setPosition(textStartPos);	
-	font.loadFromFile("ds-digib.ttf");
+	Text1.setPosition(textStartPos);
+	
 
+}
+void initText(Text& Text1, std::string str, Font& font, const sf::Vector2f textStartPos) {
+	font.loadFromFile("ds-digib.ttf");
+	Text1.setString(str);
+	Text1.setFont(font);
+	Text1.setCharacterSize(charSize);
+	Text1.setPosition(textStartPos);
+
+
+}
+void updateScore() {
+}
+void updateHealth() {
 }
 
 
@@ -45,11 +57,11 @@ void checkCollisions(Ball& ball, Bat& bat) {
 
 }
 //отрисовка обьектов
-void drawGame(sf::RenderWindow& window, Bat bat, Ball ball,TextText score,TextText lives ) {
+void drawGame(sf::RenderWindow& window, Bat bat, Ball ball, Text scoreText, Text healthText,Text Text1,Text Text2) {
 	window.clear(sf::Color::Cyan);
 	window.draw(bat.shape);
 	window.draw(ball.shape);
-	window.draw(score.text);
-	window.draw(lives.text);
+	window.draw(scoreText);
+	window.draw(healthText);
 	window.display();
 }

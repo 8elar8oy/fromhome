@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "settings.h"
 struct Ball {
 	sf::CircleShape shape;
@@ -6,7 +6,7 @@ struct Ball {
 	float speedy;
 
 };
-//создание мяча
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 void initBall(Ball& ball)
 {
 	srand(time(nullptr));
@@ -20,7 +20,7 @@ void initBall(Ball& ball)
 
 
 }
-//движение мячика
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 void moveBall(Ball& ball)
 {
 
@@ -34,17 +34,17 @@ void ballReboundEdges(Ball& ball) {
 	if (ball.shape.getPosition().y >= (WINDOW_HEIGHT - 2 * BALL_RADIUS)) {
 		exit(0);
 	}
-	
+
 }
-//касание мяча ракеткой
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 bool pointInRect(const Bat& bat, sf::Vector2f& point) {
 	return ((point.x >= bat.shape.getPosition().x && point.x <= bat.shape.getPosition().x + LENGTH_BAT) &&
 		(point.y >= bat.shape.getPosition().y && point.y <= bat.shape.getPosition().y + WIDTH_BAT));
 
 }
-//мячик отбивается от ракетки
+//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 void ballReboundBat(Ball& ball, Bat& bat) {
 	sf::Vector2f midBottom{ ball.shape.getPosition().x + BALL_RADIUS, ball.shape.getPosition().y + 2 * BALL_RADIUS };
 	if (pointInRect(bat, midBottom))
-	ball.speedy = -ball.speedy;
+		ball.speedy = -ball.speedy;
 }
