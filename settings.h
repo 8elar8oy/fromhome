@@ -23,7 +23,14 @@ const sf::Vector2f BAT_SIZE{ LENGTH_BAT, WIDTH_BAT };
 const sf::Vector2f BAT_START_POS{ BAT_START_POSX,BAT_START_POSY };
 
 //блоки
+const float LENGTH_BLOCK = 80;
+const float WIDTH_BLOCK = 40;
+const float BLOCK_START_POSX = 5;
+const float BLOCK_START_POSY = 5;
+
 const sf::Color BLOCKS_COLOR[4] = { sf::Color::Red,sf::Color::Black, sf::Color::Blue,sf::Color::Green };
+const sf::Vector2f BLOCK_SIZE{LENGTH_BLOCK,WIDTH_BLOCK};
+const sf::Vector2f BLOCK_START_POS[];
 //текст
 const int charSize = 48;
 int health = 3;

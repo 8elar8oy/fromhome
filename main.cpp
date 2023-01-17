@@ -1,8 +1,9 @@
-#include "settings.h"
+﻿#include "settings.h"
 #include "functions.h"
 #include "Bat.h"
 #include "Ball.h"
 #include "Text.h"
+#include "Blocks.h"
 
 using namespace sf;
 int main()
@@ -16,6 +17,11 @@ int main()
 	Text Text1;
 	Text Text2;
 	Font font;
+	Block block[5];
+	for (int i = 0; i < 5; i++)
+	{
+		initBlock(block[i], BLOCKS_COLOR[i], BLOCK_START_POS[]);
+	}
 	
 	initBat(bat);
 	initBall(ball);
@@ -23,14 +29,14 @@ int main()
 	initText(Text1, str1, font, Text1StartPos);
 	initScore(scoreText, score, font, ScoreTextStartPos);
 	initText(Text2, str2, font, Text2StartPos);
-	
+
 	while (window.isOpen())
 	{
 		checkEvents(window);
 		updateGame(bat, ball, healthText);
-		checkCollisions(ball, bat,healthText);
-		drawGame(window, bat, ball, scoreText, healthText, Text1,Text2);
-		
+		checkCollisions(ball, bat, healthText);
+		drawGame(window, bat, ball, scoreText, healthText, Text1, Text2, block);
+
 	}
 
 	return 0;

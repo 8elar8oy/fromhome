@@ -5,6 +5,7 @@
 #include "Ball.h"
 #include "Text.h"
 #include "windows.h"
+#include "Blocks.h"
 
 
 //основная функция
@@ -35,33 +36,35 @@ void initText(sf::Text& Text1, std::string str, sf::Font& font, const sf::Vector
 
 
 }
-void updateScore() {
+void updateScore(Ball& ball, Text& healthText) {
+	if (ball.shape.getPosition().y >= (WINDOW_HEIGHT - 2 * BALL_RADIUS)) {
 
+		health = health - 1;
+		healthText.setString(std::to_string(health));
+		ball.shape.setPosition(BALL_START_POS);
+		ball.speedx = 0;
+		ball.speedy = 0;
+
+	}
 }
-
-
-
-
-
-
 //обновление позиции обьектов
-void updateGame(Bat& bat, Ball& ball,sf::Text& healthText) {
+void updateGame(Bat& bat, Ball& ball, sf::Text& healthText) {
 
 	controlBat(bat);
 	moveBall(ball);
 	checkLives(health);
-	
+	updateScore(ball, healthText);
 
 }
 
-void checkCollisions(Ball& ball, Bat& bat,sf::Text& HealthText) {
-	ballReboundEdges(ball,HealthText);
+void checkCollisions(Ball& ball, Bat& bat, sf::Text& HealthText) {
+	ballReboundEdges(ball, HealthText);
 	batReboundEdges(bat);
 	ballReboundBat(ball, bat);
 
 }
 //отрисовка обьектов
-void drawGame(sf::RenderWindow& window, Bat& bat, Ball& ball, sf::Text& scoreText, sf::Text& healthText, sf::Text Text1,sf::Text Text2 ) {
+void drawGame(sf::RenderWindow& window, Bat& bat, Ball& ball, sf::Text& scoreText, sf::Text& healthText, sf::Text Text1, sf::Text Text2, Block& block) {
 	window.clear(sf::Color::Cyan);
 	window.draw(bat.shape);
 	window.draw(ball.shape);
@@ -69,5 +72,6 @@ void drawGame(sf::RenderWindow& window, Bat& bat, Ball& ball, sf::Text& scoreTex
 	window.draw(healthText);
 	window.draw(Text1);
 	window.draw(Text2);
+	window.draw(block.shape);
 	window.display();
 }

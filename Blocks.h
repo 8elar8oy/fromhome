@@ -3,6 +3,10 @@
 using namespace sf;
 struct Block {
 	RectangleShape shape;
-
+	
 };
-void initBlocks
+void initBlock(Block& block, sf::Color BLOCK_COLOR, sf::Vector2f BLOCK_START_POS) {
+	block.shape.setSize(BLOCK_SIZE);
+	block.shape.setFillColor(BLOCK_COLOR);
+	block.shape.setPosition(BLOCK_START_POS);
+}
