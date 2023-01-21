@@ -17,12 +17,8 @@ int main()
 	Text Text1;
 	Text Text2;
 	Font font;
-	Block block[5];
-	for (int i = 0; i < 5; i++)
-	{
-		initBlock(block[i], BLOCKS_COLOR[i], BLOCK_START_POS[]);
-	}
-	
+	Block block;
+	initBlock(block, BLOCKS_COLOR[1], BLOCK_START_POS);
 	initBat(bat);
 	initBall(ball);
 	initScore(healthText, health, font, HealthTextStartPos);
