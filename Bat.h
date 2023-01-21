@@ -1,10 +1,10 @@
-п»ї#pragma once
+#pragma once
 #include "settings.h"
 struct Bat {
 	sf::RectangleShape shape;
 	float speedx;
 };
-//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//создание Ракетки
 void initBat(Bat& bat)
 {
 	bat.shape.setSize(BAT_SIZE);

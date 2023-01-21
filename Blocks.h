@@ -1,19 +1,26 @@
-
 #pragma once
 #include "settings.h"
 using namespace sf;
 struct Block {
 	RectangleShape shape;
-
+	Color color;
+	Vector2f position;
+	
 };
-void initBlock(Block& block, sf::Color BLOCK_COLOR, sf::Vector2f BLOCK_START_POS) {
+
+void initBlock(Block& block,Color& color, Vector2f& position) {
+	block.color = color;
+	block.position = position;
 	block.shape.setSize(BLOCK_SIZE);
-	block.shape.setFillColor(BLOCK_COLOR);
-	block.shape.setPosition(BLOCK_START_POS);
+	block.shape.setFillColor(block.color);
+	block.shape.setPosition(block.position);
 }
+
 void updateBlock(Block& block) {
-	
+
 }
-void drawBlock(Block& block) {
+void drawBlock(RenderWindow& window, Block& block) {
 	
+	window.draw(block.shape);
 }
+	
