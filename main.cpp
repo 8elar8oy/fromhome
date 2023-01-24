@@ -4,7 +4,8 @@
 #include "Ball.h"
 #include "Text.h"
 #include "Blocks.h"
-
+#include "BlockRow.h"
+#include "BlockField.h"
 using namespace sf;
 int main()
 {
@@ -19,9 +20,11 @@ int main()
 	Font font;
 	Block block;
 	BlockRow blockrow;
-	blockrow.size = 10;
-	blockrow.arr[blockrow.size];
-	BlockInit(blockrow, blockrow.size, BLOCK_START_POS, stepX);
+	BlockField blockfield;
+	int columns = 20;
+	int rows = 8;
+	//InitBlockRow(blockrow, size,BLOCK_START_POS, stepX);
+	InitBlockField(blockfield, columns, rows, BLOCK_START_POS, stepX);
 	initBat(bat);
 	initBall(ball);
 	initScore(healthText, health, font, HealthTextStartPos);
@@ -32,13 +35,13 @@ int main()
 	while (window.isOpen())
 	{
 		checkEvents(window);
-		updateGame(bat, ball, healthText);
+		updateGame(bat, ball,blockfield,healthText, columns, rows);
 		checkCollisions(ball, bat, healthText);
-		drawGame(window, bat, ball, scoreText, healthText, Text1, Text2, blockrow,block);
-
-
-
-
+		drawGame(window, bat, ball,blockfield,scoreText, healthText, Text1, Text2, columns,  rows);
+		
+		
+		
+	
 	}
 
 	return 0;
