@@ -18,10 +18,10 @@ int main()
 	Text Text2;
 	Font font;
 	Block block;
-	BlockRow blockarr;
-	blockarr.size = 10;
-	blockarr.arr[blockarr.size];
-	initBlock(block, BLOCKS_COLOR[i], BLOCK_START_POS);
+	BlockRow blockrow;
+	blockrow.size = 10;
+	blockrow.arr[blockrow.size];
+	BlockInit(blockrow, blockrow.size, BLOCK_START_POS, stepX);
 	initBat(bat);
 	initBall(ball);
 	initScore(healthText, health, font, HealthTextStartPos);
@@ -34,11 +34,11 @@ int main()
 		checkEvents(window);
 		updateGame(bat, ball, healthText);
 		checkCollisions(ball, bat, healthText);
-		drawGame(window, bat, ball, scoreText, healthText, Text1, Text2,block);
-		
-		
-		
-	
+		drawGame(window, bat, ball, scoreText, healthText, Text1, Text2, blockrow,block);
+
+
+
+
 	}
 
 	return 0;
