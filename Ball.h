@@ -39,11 +39,11 @@ void ballReboundEdges(Ball& ball, sf::Text& healthText) {
 }
 //касание мяча ракеткой
 bool pointInRect(Bat& bat, sf::Vector2f& point) {
-	return (point.x >= bat.shape.getPosition().x && point.x <= bat.shape.getPosition().x + LENGTH_BAT ) &&
+	return (point.x >= bat.shape.getPosition().x && point.x <= bat.shape.getPosition().x + LENGTH_BAT) &&
 		(point.y >= bat.shape.getPosition().y && point.y <= bat.shape.getPosition().y + WIDTH_BAT);
 }
 //мячик отбивается от ракетки
-void ballReboundBat(Ball&  ball, Bat& bat) {
+void ballReboundBat(Ball& ball, Bat& bat) {
 	sf::Vector2f midTop{
 		ball.shape.getPosition().x + BALL_RADIUS,
 		ball.shape.getPosition().y

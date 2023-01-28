@@ -1,12 +1,10 @@
-#pragma once
+п»ї#pragma once
 #include "settings.h"
 struct Bat {
 	sf::RectangleShape shape;
-	float speedx;
+	float speedx = 0;
 };
-//создание Ракетки
-void initBat(Bat& bat)
-{
+void initBat(Bat& bat){
 	bat.shape.setSize(BAT_SIZE);
 	bat.shape.setFillColor(BAT_COLOR);
 	bat.shape.setPosition(BAT_START_POS);
@@ -29,4 +27,7 @@ void batUpdate(Bat& bat)
 {
 	batReboundEdges(bat);
 	controlBat(bat);
+}
+void drawBat(RenderWindow& window, Bat& bat) {
+	window.draw(bat.shape);
 }

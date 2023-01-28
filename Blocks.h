@@ -5,13 +5,13 @@ struct Block {
 	RectangleShape shape;
 	Color color;
 	Vector2f position;
-	
+
 };
 
 
 
-void initBlock(Block& block,Color& color, Vector2f& position) {
-	
+void initBlock(Block& block, Color& color, Vector2f& position) {
+
 	block.color = color;
 	block.position = position;
 	block.shape.setSize(BLOCK_SIZE);
@@ -26,7 +26,7 @@ void updateBlock(Block& block) {
 
 }
 void drawBlock(RenderWindow& window, Block& block) {
-	
+
 	window.draw(block.shape);
 }
-	
+

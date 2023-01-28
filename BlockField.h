@@ -9,46 +9,46 @@ struct BlockField {
 
 
 };
-void InitBlockField(BlockField& blockField, int columns,int rows, Vector2f& position, float stepX) {
-	
+void InitBlockField(BlockField& blockField) {
+
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
-			
-			sf::Color color{ BLOCKS_COLOR[i/2] };
-		
-		
-			sf::Vector2f blockPos{ position.x + i * stepX,position.y };
-			initBlock(blockField.field[i][j], BLOCKS_COLOR[i/2], blockPos);
+
+			sf::Color color{ BLOCKS_COLOR[i / 2] };
+
+
+			sf::Vector2f blockPos{BLOCK_START_POS.x + j * stepX,BLOCK_START_POS.y +  i * stepY };
+			initBlock(blockField.field[i][j], BLOCKS_COLOR[i / 2], blockPos);
 		}
-		
+
 	}
 
 }
-void blockFieldUpdate(BlockField& blockfield, int columns, int rows) {
-	
+void blockFieldUpdate(BlockField& blockfield) {
+
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
 			updateBlock(blockfield.field[i][j]);
 
-			
+
 		}
 
 	}
 }
-void BlockFieldDraw(RenderWindow& window, BlockField& blockfield, int columns, int rows) {
+void BlockFieldDraw(RenderWindow& window, BlockField& blockfield) {
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
-			
+
 			window.draw(blockfield.field[i][j].shape);
 
 		}
 
 	}
-	
+
 }
