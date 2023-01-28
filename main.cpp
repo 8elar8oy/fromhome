@@ -1,10 +1,9 @@
-#include "settings.h"
+﻿#include "settings.h"
 #include "functions.h"
 #include "bat.h"
 #include "ball.h"
 #include "Text.h"
 #include "Blocks.h"
-#include "BlockRow.h"
 #include "BlockField.h"
 using namespace sf;
 int main()
@@ -19,29 +18,22 @@ int main()
 	Text Text2;
 	Font font;
 	Block block;
-	BlockRow blockrow;
+	
 	BlockField blockfield;
-
-
 	InitBlockField(blockfield);
 	initBat(bat);
 	initBall(ball);
-	initScore(healthText, health, font, HealthTextStartPos);
-	initText(Text1, str1, font, Text1StartPos);
-	initScore(scoreText, score, font, ScoreTextStartPos);
-	initText(Text2, str2, font, Text2StartPos);
+	initScore(healthText, health, font, HEALTHTEXT_START_POS);
+	initText(Text1, str1, font, TEXT1_START_POS);
+	initScore(scoreText, score, font, SCORETEXT_START_POS);
+	initText(Text2, str2, font, TEXT2_START_POS);
 
 	while (window.isOpen())
 	{
 		checkEvents(window);
 		updateGame(bat, ball, blockfield, healthText);
-		checkCollisions(ball, bat, healthText);
+		checkCollisions(ball, bat,blockfield, healthText,scoreText);
 		drawGame(window, bat, ball, blockfield, scoreText, healthText, Text1, Text2);
-
-
-
-
 	}
-
 	return 0;
 }

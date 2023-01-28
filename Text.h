@@ -7,14 +7,16 @@ void checkLives(int& health) {
 		exit(0);
 	}
 }
-void initScore(Text& Text1, int count, Font& font, const Vector2f textStartPos) {
+void initScore(Text& text, int count, Font& font, const Vector2f textStartPos) {
 	font.loadFromFile("ds-digib.ttf");
-	Text1.setString(std::to_string(count));
-	Text1.setFont(font);
-	Text1.setCharacterSize(charSize);
-	Text1.setPosition(textStartPos);
+	text.setString(std::to_string(count));
+	text.setFont(font);
+	text.setFillColor(Color::Black);
+	text.setCharacterSize(CHAR_SIZE);
+	text.setPosition(textStartPos);
 }
-void updateScore(Ball& ball, Text& healthText) {
+
+void updateHealth(Ball& ball, Text& healthText) {
 	if (ball.shape.getPosition().y >= (WINDOW_HEIGHT - 2 * BALL_RADIUS)) {
 		health = health - 1;
 		healthText.setString(std::to_string(health));
@@ -27,7 +29,8 @@ void initText(Text& text, std::string str, Font& font, const Vector2f textStartP
 	font.loadFromFile("ds-digib.ttf");
 	text.setString(str);
 	text.setFont(font);
-	text.setCharacterSize(charSize);
+	text.setFillColor(Color::Black);
+	text.setCharacterSize(CHAR_SIZE);
 	text.setPosition(textStartPos);
 }
 void drawScore(RenderWindow& window, Text& scoreText) {
