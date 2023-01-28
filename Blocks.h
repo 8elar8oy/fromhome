@@ -29,4 +29,3 @@ void drawBlock(RenderWindow& window, Block& block) {
 
 	window.draw(block.shape);
 }
-

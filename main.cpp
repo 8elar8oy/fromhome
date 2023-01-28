@@ -1,11 +1,7 @@
-﻿#include "settings.h"
-#include "functions.h"
-#include "Bat.h"
-#include "Ball.h"
 #include "settings.h"
 #include "functions.h"
-#include "Bat.h"
-#include "Ball.h"
+#include "bat.h"
+#include "ball.h"
 #include "Text.h"
 #include "Blocks.h"
 #include "BlockRow.h"
@@ -25,8 +21,8 @@ int main()
 	Block block;
 	BlockRow blockrow;
 	BlockField blockfield;
-	
-	
+
+
 	InitBlockField(blockfield);
 	initBat(bat);
 	initBall(ball);

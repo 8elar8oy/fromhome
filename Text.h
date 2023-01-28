@@ -7,7 +7,7 @@ void checkLives(int& health) {
 		exit(0);
 	}
 }
-void initScore(sf::Text& Text1, int count, sf::Font& font, const sf::Vector2f textStartPos) {
+void initScore(Text& Text1, int count, Font& font, const Vector2f textStartPos) {
 	font.loadFromFile("ds-digib.ttf");
 	Text1.setString(std::to_string(count));
 	Text1.setFont(font);
@@ -23,7 +23,7 @@ void updateScore(Ball& ball, Text& healthText) {
 		ball.speedy = 0;
 	}
 }
-void initText(sf::Text& text, std::string str, sf::Font& font, const sf::Vector2f textStartPos) {
+void initText(Text& text, std::string str, Font& font, const Vector2f textStartPos) {
 	font.loadFromFile("ds-digib.ttf");
 	text.setString(str);
 	text.setFont(font);

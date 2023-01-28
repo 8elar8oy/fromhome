@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "settings.h"
 #include "Blocks.h"
 #include "BlockRow.h"
@@ -19,7 +18,7 @@ void InitBlockField(BlockField& blockField) {
 			sf::Color color{ BLOCKS_COLOR[i / 2] };
 
 
-			sf::Vector2f blockPos{BLOCK_START_POS.x + j * stepX,BLOCK_START_POS.y +  i * stepY };
+			sf::Vector2f blockPos{ BLOCK_START_POS.x + j * stepX,BLOCK_START_POS.y + i * stepY };
 			initBlock(blockField.field[i][j], BLOCKS_COLOR[i / 2], blockPos);
 		}
 

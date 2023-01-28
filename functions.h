@@ -1,45 +1,46 @@
-п»ї#pragma once
+#pragma once
 #include "SFML/Graphics.hpp"
-#include "Bat.h"
-#include "Ball.h"
+#include "bat.h"
+#include "ball.h"
 #include "Text.h"
 #include "windows.h"
 #include "Blocks.h"
 #include "BlockRow.h"
 #include "BlockField.h"
-//РѕСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ
-void checkEvents(sf::RenderWindow& window) {
-	sf::Event event;
+using namespace sf;
+//основная функция
+void checkEvents(RenderWindow& window) {
+	Event event;
 	while (window.pollEvent(event))
 	{
-		if (event.type == sf::Event::Closed)
+		if (event.type == Event::Closed)
 			window.close();
 	}
-	//СЃРѕР·РґР°РЅРёРµ СЂР°РєРµС‚РєРё
+	//создание ракетки
 }
-//РѕР±РЅРѕРІР»РµРЅРёРµ РїРѕР·РёС†РёРё РѕР±СЊРµРєС‚РѕРІ
-void updateGame(Bat& bat, Ball& ball, BlockField blockfield, sf::Text& healthText) {
+//обновление позиции обьектов
+void updateGame(Bat& bat, Ball& ball, BlockField blockfield, Text& healthText) {
 	controlBat(bat);
 	moveBall(ball);
 	blockFieldUpdate(blockfield);
 	checkLives(health);
 	updateScore(ball, healthText);
 }
-void checkCollisions(Ball& ball, Bat& bat, sf::Text& HealthText) {
+void checkCollisions(Ball& ball, Bat& bat, Text& HealthText) {
 	ballReboundEdges(ball, HealthText);
 	batReboundEdges(bat);
 	ballReboundBat(ball, bat);
 
 }
-//РѕС‚СЂРёСЃРѕРІРєР° РѕР±СЊРµРєС‚РѕРІ
-void drawGame(sf::RenderWindow& window, Bat& bat, Ball& ball, BlockField& blockfield, sf::Text& scoreText, sf::Text& healthText, sf::Text Text1, sf::Text Text2) {
+//отрисовка обьектов
+void drawGame(RenderWindow& window, Bat& bat, Ball& ball, BlockField& blockfield, Text& scoreText, Text& healthText, Text Text1,Text Text2) {
 	window.clear(sf::Color::Cyan);
 	BlockFieldDraw(window, blockfield);
-	drawBat(window,bat);
+	DrawBat(window, bat);
 	window.draw(ball.shape);
 	drawScore(window, scoreText);
 	drawLives(window, healthText);
 	drawText1(window, Text1);
-	drawText2( window, Text2);
+	drawText2(window, Text2);
 	window.display();
 }
